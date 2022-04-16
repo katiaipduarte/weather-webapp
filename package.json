@@ -6,6 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
+		"docker:build": "docker build -t weather-webapp-docker .",
+		"docker:run": "npm run docker:build && docker run -p 3000:3000 weather-webapp-docker",
 		"lint": "next lint",
 		"format": "prettier --config ./.prettierrc --write \"*/**/*{.ts,.tsx}\"",
 		"prepare": "husky install"
