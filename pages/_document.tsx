@@ -39,16 +39,14 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.locale}>
+      <Html lang="en-US">
         <Head>
           <meta charSet="utf-8" />
           <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
           <meta name="theme-color" content="#FFFFFF" />
-          <meta name="keywords" content="" />
-          <meta property="og:site_name" content="nextjs-boilerplate" />
-          <meta property="og:locale" content={this.props.locale} />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:site" content="" />
+          <meta name="keywords" content="weather" />
+          <meta property="og:site_name" content="weather-webapp" />
+          <meta property="og:locale" content="en-US" />
         </Head>
         <body>
           <Main />
