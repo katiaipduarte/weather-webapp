@@ -3,15 +3,15 @@ import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../styles'
 import { theme } from '../styles/theme'
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  )
+const App = ({ Component, pageProps }: AppProps): JSX.Element => {
+	return (
+		<>
+			<GlobalStyle />
+			<ThemeProvider theme={theme}>
+				<Component {...pageProps} />
+			</ThemeProvider>
+		</>
+	)
 }
 
-export default MyApp
+export default App
