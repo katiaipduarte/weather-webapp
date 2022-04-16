@@ -1,0 +1,28 @@
+{
+  "editor.codeActionsOnSave": [
+    "source.organizeImports",
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "npm.packageManager": "npm",
+  "eslint.packageManager": "npm",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "prettier.ignorePath": ".prettierignore",
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
+  },
+  "search.exclude": {
+    "package-lock.json": true
+  }
+}
