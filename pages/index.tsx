@@ -1,27 +1,26 @@
+import { DEFAULT_COORDINATES } from '@constants/default-coordinates'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
-import WeatherProvider from '@services/weather-provider'
-import { DEFAULT_COORDINATES } from 'constants/default-coordinates'
+import { getWeatherByCoords } from '@services/weather.service'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Title } from '../styles'
 
 const Home: NextPage = () => {
-	const [isFetching, setIsFetching] = useState(false)
-	const { getWeatherByCoordinates } = WeatherProvider()
+	// 	const [isFetching, setIsFetching] = useState(false)
 
 	useEffect(() => {
 		const abortController = new AbortController()
-		setIsFetching(true)
+		// setIsFetching(true)
 
-		getWeatherByCoordinates(
+		getWeatherByCoords(
 			DEFAULT_COORDINATES.lat,
 			DEFAULT_COORDINATES.lon,
 			abortController
 		).then((weather: WeatherResponse) => {
-			setIsFetching(false)
+			// setIsFetching(false)
 			console.log(weather)
-			console.log(isFetching)
+			// console.log(isFetching)
 		})
 
 		return () => {

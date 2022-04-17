@@ -14,6 +14,6 @@ export interface CurrentWeather {
 	visibility: number
 	wind_speed: number //the wind speed is in m/s, to use km/h we need to multiply by 3.6
 	wind_deg: number
-	wind_gust: number
+	wind_gust?: number
 	weather: WeatherDescription[]
 }

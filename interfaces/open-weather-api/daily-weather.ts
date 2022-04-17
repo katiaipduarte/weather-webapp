@@ -26,10 +26,10 @@ export interface DailyWeather {
 	dew_point: number
 	wind_speed: number
 	wind_deg: number
-	wind_gust: number
+	wind_gust?: number
 	weather: WeatherDescription[]
 	clouds: number
 	pop: number
-	rain: number
+	rain?: number
 	uvi: number
 }

@@ -1,24 +1,34 @@
+import { mockWeatherResponse } from '@mocks/weather-response.mock'
 import Home from '@pages/index'
+import { getWeatherByCoords } from '@services/weather.service'
 import { render, screen } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
 import theme from '../styles/theme'
 
-// Hoist helper functions (but not vars) to reuse between test cases
-const renderComponent = ({ theme }) =>
-	render(
-		<ThemeProvider theme={theme}>
-			<Home />
-		</ThemeProvider>
-	)
+jest.mock('../services/weather.service')
+
 describe('Home', () => {
-	it('renders homepage unchanged', () => {
+	const renderComponent = ({ theme }) =>
+		render(
+			<ThemeProvider theme={theme}>
+				<Home />
+			</ThemeProvider>
+		)
+
+	const mockService = getWeatherByCoords as jest.MockedFunction<
+		typeof getWeatherByCoords
+	>
+
+	test('renders homepage unchanged', async () => {
+		mockService.mockResolvedValue(mockWeatherResponse)
+
 		// Render new instance in every test to prevent leaking state
 		const { container } = renderComponent({ theme: theme })
 
 		expect(container).toMatchSnapshot()
 	})
 
-	it('renders a heading', () => {
+	test('renders a heading', () => {
 		renderComponent({ theme: theme })
 
 		const heading = screen.getByRole('heading', {
