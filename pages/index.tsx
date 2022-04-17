@@ -1,4 +1,5 @@
 import CurrentWeather from '@components/CurrentWeather/CurrentWeather'
+import ForecastList from '@components/ForecastList/ForecastList'
 import { DEFAULT_COORDINATES } from '@constants/default-coordinates'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
@@ -74,7 +75,10 @@ const Home: NextPage = () => {
 			>
 				<Logo className='logo'>weather.app⁢</Logo>
 				{!isFetching && weather && (
-					<CurrentWeather currentWeather={weather?.current} city={cityName} />
+					<>
+						<CurrentWeather currentWeather={weather?.current} city={cityName} />
+						<ForecastList forecast={weather.daily} />
+					</>
 				)}
 			</main>
 
