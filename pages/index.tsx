@@ -1,15 +1,12 @@
-import CurrentWeather from '@components/CurrentWeather/CurrentWeather'
-import ForecastList from '@components/ForecastList/ForecastList'
+import LayoutWrapper from '@components/templates/LayoutWrapper/LayoutWrapper'
 import { DEFAULT_COORDINATES } from '@constants/default-coordinates'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getLocationNameByCoords } from '@services/location.service'
 import { getWeatherByCoords } from '@services/weather.service'
-import { getBackgroundImg } from '@utils/get-background-img'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { Logo } from '../styles/index'
 
 const Home: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
@@ -66,23 +63,9 @@ const Home: NextPage = () => {
 				<title>See the weather to your current location</title>
 			</Head>
 
-			<main
-				style={{
-					backgroundImage: `url(${getBackgroundImg(
-						weather?.current.weather[0].main as string
-					)})`,
-				}}
-			>
-				<Logo className='logo'>weather.app⁢</Logo>
-				{!isFetching && weather && (
-					<>
-						<CurrentWeather currentWeather={weather?.current} city={cityName} />
-						<ForecastList forecast={weather.daily} />
-					</>
-				)}
-			</main>
-
-			<footer></footer>
+			{!isFetching && weather && (
+				<LayoutWrapper weather={weather} cityName={cityName} />
+			)}
 		</>
 	)
 }

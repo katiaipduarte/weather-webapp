@@ -22,3 +22,25 @@ export const getLocationNameByCoords = (
 			return response
 		})
 }
+
+export const getCoordsByLocationName = (
+	city: string,
+	country: string,
+	abortController: AbortController
+): Promise<GPSLocation[]> => {
+	return fetch(
+		`http://api.openweathermap.org/geo/1.0/direct?q=${city},${country}&limit=1&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
+		{
+			method: 'GET',
+			signal: abortController.signal,
+		}
+	)
+		.then((response) => handleRequest(response))
+		.then((response) => {
+			if (response && Object.keys(response).length === 0) {
+				throw new Error('An unexpected error has occurred')
+			}
+
+			return response
+		})
+}
