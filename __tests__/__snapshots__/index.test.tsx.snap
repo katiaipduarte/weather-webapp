@@ -6,7 +6,7 @@ exports[`Home renders homepage unchanged 1`] = `
     style="background-image: url();"
   >
     <h1
-      class="sc-gsnTZi hGIKZL logo"
+      class="sc-dkzDqf hZghkI logo"
     >
       weather.app⁢
     </h1>
