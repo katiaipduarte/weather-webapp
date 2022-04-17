@@ -2,11 +2,13 @@
 
 exports[`Home renders homepage unchanged 1`] = `
 <div>
-  <main>
+  <main
+    style="background-image: url();"
+  >
     <h1
-      class="sc-bczRLJ gXMuwp"
+      class="sc-gsnTZi hGIKZL logo"
     >
-      My page
+      weather.app⁢
     </h1>
   </main>
   <footer />

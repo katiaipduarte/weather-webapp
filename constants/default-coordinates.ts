@@ -2,4 +2,5 @@
 export const DEFAULT_COORDINATES = {
 	lat: 39.74362,
 	lon: -8.80705,
+	cityName: 'Leiria',
 }

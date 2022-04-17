@@ -1,4 +1,5 @@
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
+
 export const mockWeatherResponse: WeatherResponse = {
 	lat: 39.7436,
 	lon: -8.8071,

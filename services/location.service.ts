@@ -1,14 +1,13 @@
+import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { handleRequest } from '@utils/handle-request'
 
-const exclude = 'minutely,hourly,alerts'
-
-export const getWeatherByCoords = (
+export const getLocationNameByCoords = (
 	lat: number,
 	lon: number,
 	abortController: AbortController
-) => {
+): Promise<GPSLocation[]> => {
 	return fetch(
-		`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=${exclude}&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
+		`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
 		{
 			method: 'GET',
 			signal: abortController.signal,
