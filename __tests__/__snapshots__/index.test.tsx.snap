@@ -3,7 +3,7 @@
 exports[`Home renders homepage unchanged 1`] = `
 <div>
   <main
-    style="background-image: url(/assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg);"
+    style="background-image: url();"
   >
     <h1
       class="sc-gsnTZi hGIKZL logo"
