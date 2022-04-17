@@ -26,8 +26,10 @@
 		"preserveConstEnums": true,
 		"paths": {
 			"@components/*": ["components/*"],
+			"@constants/*": ["constants/*"],
 			"@hooks/*": ["hooks/*"],
 			"@interfaces/*": ["interfaces/*"],
+			"@mocks/*": ["mocks/*"],
 			"@pages/*": ["pages/*"],
 			"@services/*": ["services/*"],
 			"@styles/*": ["styles/*"],

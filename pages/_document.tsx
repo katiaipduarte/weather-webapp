@@ -49,6 +49,10 @@ class MyDocument extends Document {
 					<meta name='keywords' content='weather' />
 					<meta property='og:site_name' content='weather-webapp' />
 					<meta property='og:locale' content='en-US' />
+					<meta
+						name='description'
+						content='See the weather for your location and others for today and the next seven'
+					/>
 				</Head>
 				<body>
 					<Main />
