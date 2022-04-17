@@ -53,6 +53,28 @@ class MyDocument extends Document {
 						name='description'
 						content='See the weather for your location and others for today and the next seven'
 					/>
+
+					<link rel='preconnect' href='https://fonts.googleapis.com' />
+					<link
+						rel='stylesheet'
+						href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap'
+					/>
+					<link
+						rel='preload'
+						as='style'
+						href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap'
+					/>
+					<link
+						rel='stylesheet'
+						href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap'
+						media='print'
+					/>
+					<noscript>
+						<link
+							rel='stylesheet'
+							href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap'
+						/>
+					</noscript>
 				</Head>
 				<body>
 					<Main />
