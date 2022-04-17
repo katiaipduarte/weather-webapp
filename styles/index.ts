@@ -27,9 +27,11 @@ export const GlobalStyle = createGlobalStyle`
       padding: 2.5rem 8rem;
       display: flex;
       flex-direction: column;
+      background-repeat: no-repeat;
+      background-size: auto;
 
-      h1,h2,h3,h4,h5,h6,p,span {
-          cursor: default;
+      h1, h2, h3, h4, h5, h6, p, span {
+        cursor: default;
       }
 
       h2 {

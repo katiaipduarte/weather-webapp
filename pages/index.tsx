@@ -4,6 +4,7 @@ import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getLocationNameByCoords } from '@services/location.service'
 import { getWeatherByCoords } from '@services/weather.service'
+import { getBackgroundImg } from '@utils/get-background-img'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
@@ -66,7 +67,9 @@ const Home: NextPage = () => {
 
 			<main
 				style={{
-					backgroundImage: `url('/assets/valentin-muller-bWtd1ZyEy6w-unsplash.jpg')`,
+					backgroundImage: `url(${getBackgroundImg(
+						weather?.current.weather[0].main as string
+					)})`,
 				}}
 			>
 				<Logo className='logo'>weather.app⁢</Logo>
