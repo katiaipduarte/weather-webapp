@@ -17,6 +17,7 @@ const customJestConfig = {
 		'@mocks/(.*)$': '<rootDir>/mocks/$1',
 		'@styles/(.*)$': '<rootDir>/styles/$1',
 		'@utils/(.*)$': '<rootDir>/utils/$1',
+		'@store/(.*)$': '<rootDir>/store/$1',
 	},
 	testEnvironment: 'jest-environment-jsdom',
 	testPathIgnorePatterns: ['/node_modules/', '/.next/'],

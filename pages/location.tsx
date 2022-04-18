@@ -1,37 +1,39 @@
 import LayoutWrapper from '@components/templates/LayoutWrapper/LayoutWrapper'
-import { DEFAULT_COORDINATES } from '@constants/default-coordinates'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getLocationNameByCoords } from '@services/location.service'
 import { getWeatherByCoords } from '@services/weather.service'
+import useQuery from '@utils/use-query'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
 
-const Home: NextPage = () => {
+const Location: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 	const [weather, setWeather] = useState<WeatherResponse>()
 	const [cityName, setCityName] = useState<string>('')
+	const query = useQuery()
 
 	useEffect(() => {
-		navigator.geolocation.watchPosition(success, error)
-
-		return () => {
-			navigator.geolocation.watchPosition(success, error)
+		if (!query) {
+			return
 		}
-	}, [])
 
-	const success = (position: any): void => {
+		const lat: number | undefined = query.lat ? +query.lat : undefined
+		const lon: number | undefined = query.lon ? +query.lon : undefined
+
+		if (!!lat && !!lon) {
+			getWeather(lat, lon)
+		}
+	}, [query])
+
+	const getWeather = (lat: number, lon: number): void => {
 		const abortController = new AbortController()
-
-		const coords = {
-			lat: position.coords.latitude,
-			lon: position.coords.longitude,
-		}
+		setIsFetching(true)
 
 		Promise.all([
-			getWeatherByCoords(coords.lat, coords.lon, abortController),
-			getLocationNameByCoords(coords.lat, coords.lon, abortController),
+			getWeatherByCoords(lat, lon, abortController),
+			getLocationNameByCoords(lat, lon, abortController),
 		]).then((values: [WeatherResponse, GPSLocation[]]) => {
 			const weather = values[0]
 			const location: GPSLocation = values[1][0]
@@ -42,25 +44,10 @@ const Home: NextPage = () => {
 		})
 	}
 
-	const error = (): void => {
-		const abortController = new AbortController()
-		setIsFetching(true)
-
-		getWeatherByCoords(
-			DEFAULT_COORDINATES.lat,
-			DEFAULT_COORDINATES.lon,
-			abortController
-		).then((weather: WeatherResponse) => {
-			setWeather(weather)
-			setCityName(DEFAULT_COORDINATES.name)
-			setIsFetching(false)
-		})
-	}
-
 	return (
 		<>
 			<Head>
-				<title>See the weather to your current location</title>
+				<title>See the weather to the found location</title>
 			</Head>
 
 			{!isFetching && weather && (
@@ -70,4 +57,4 @@ const Home: NextPage = () => {
 	)
 }
 
-export default Home
+export default Location

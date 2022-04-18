@@ -4,6 +4,10 @@ export const List = styled.section`
 	display: flex;
 	flex-flow: row;
 	color: white;
+	background-color: rgba(0, 0, 0, 0.35);
+	width: fit-content;
+	padding: 1rem;
+	border-radius: 1rem;
 
 	.forecast-column {
 		margin-right: 2.5rem;

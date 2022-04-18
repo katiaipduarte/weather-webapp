@@ -17,6 +17,7 @@ export const WeatherInfoContainer = styled.section`
 	.location-column {
 		margin-right: 1.5rem;
 		line-height: 1.75rem;
+		z-index: 999;
 
 		h3 {
 			letter-spacing: -0.1rem;
@@ -26,6 +27,7 @@ export const WeatherInfoContainer = styled.section`
 
 	.weather-column {
 		line-height: 23px;
+		z-index: 999;
 
 		.icon-image {
 			margin-bottom: -10px !important;

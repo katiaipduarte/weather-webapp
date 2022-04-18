@@ -3,4 +3,5 @@ export interface GPSLocation {
 	lat: number
 	lon: number
 	name: string
+	state?: string
 }

@@ -1,16 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Home renders homepage unchanged 1`] = `
-<div>
-  <main
-    style="background-image: url();"
-  >
-    <h1
-      class="sc-dkzDqf hZghkI logo"
-    >
-      weather.app⁢
-    </h1>
-  </main>
-  <footer />
-</div>
-`;
+exports[`Home renders homepage unchanged 1`] = `<div />`;

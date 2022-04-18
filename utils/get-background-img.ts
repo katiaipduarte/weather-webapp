@@ -15,7 +15,7 @@ export const getBackgroundImg = (description: string): string => {
 			weatherImg = '/assets/adam-chang-IWenq-4JHqo-unsplash.jpg'
 			break
 		case 'Clear':
-			weatherImg = '/assets/sara-kurfess-ltE8bDLjX9E-unsplash.jpg'
+			weatherImg = '/assets/julian-hochgesang-DgXBwP2OiLo-unsplash.jpg'
 			break
 		case 'Clouds':
 			weatherImg = '/assets/jerry-wang-gC-D2J14si8-unsplash.jpg'
