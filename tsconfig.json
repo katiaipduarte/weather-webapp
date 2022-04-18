@@ -32,6 +32,7 @@
 			"@mocks/*": ["mocks/*"],
 			"@pages/*": ["pages/*"],
 			"@services/*": ["services/*"],
+			"@store/*": ["store/*"],
 			"@styles/*": ["styles/*"],
 			"@utils/*": ["utils/*"]
 		}

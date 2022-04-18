@@ -1,15 +1,12 @@
 import { applyMiddleware, combineReducers, createStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
 
-import searchStateReducer from './search/reducer'
-import { SearchState } from './search/type'
-
 export interface GlobalState {
-	searchState: SearchState
+	// searchState: SearchState
 }
 
 const combinedReducer = combineReducers<GlobalState>({
-	searchState: searchStateReducer,
+	// searchState: searchStateReducer,
 })
 
 const bindMiddleware = (middleware: any) => {

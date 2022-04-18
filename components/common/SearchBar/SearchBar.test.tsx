@@ -42,7 +42,7 @@ describe('<SearchBar /> component Unit Test', () => {
 		expect(clearBtn.style.visibility).toBe('hidden')
 
 		const searchInput = screen.queryByPlaceholderText(
-			'Search comics by character'
+			'Another location'
 		) as HTMLInputElement
 		fireEvent.change(searchInput, { target: { value: 'test' } })
 		expect(clearBtn.style.visibility).toBe('initial')
@@ -55,7 +55,7 @@ describe('<SearchBar /> component Unit Test', () => {
 	it('should render an input of type text and allows at max 50 char', () => {
 		render(<SearchBar />)
 		const searchInput = screen.queryByPlaceholderText(
-			'Search comics by character'
+			'Another location'
 		) as HTMLInputElement
 		expect(searchInput.type).toBe('text')
 		expect(searchInput.maxLength).toBe(50)
