@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 			abortController
 		).then((weather: WeatherResponse) => {
 			setWeather(weather)
-			setCityName(DEFAULT_COORDINATES.cityName)
+			setCityName(DEFAULT_COORDINATES.name)
 			setIsFetching(false)
 		})
 	}

@@ -1,13 +1,5 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 import { ResetCSS } from './reset-css'
-
-export const Sidebar = styled.section`
-	width: 25%;
-	background-color: rgba(0, 0, 0, 0.45);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-	padding: 1rem;
-`
 
 export const GlobalStyle = createGlobalStyle`
  ${ResetCSS}
@@ -25,6 +17,9 @@ export const GlobalStyle = createGlobalStyle`
 
     h1, h2, h3, h4, h5, h6, p, span {
       cursor: default;
+      color: white;
+      opacity: 1;
+      z-index: 999;
     }
 
     h2 {
@@ -39,6 +34,5 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 0.75rem;
       font-weight: 400;
     }
-
   }
 `

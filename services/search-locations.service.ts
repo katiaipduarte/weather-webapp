@@ -2,17 +2,15 @@ import { PlacesResponse } from '@interfaces/places-response'
 import { handleRequest } from '@utils/handle-request'
 
 export const searchForLocations = async (
-	query: string,
-	abortController: AbortController
+	query: string
 ): Promise<PlacesResponse[]> => {
 	return await fetch(
-		`https://spott.p.rapidapi.com/places/autocomplete?q=${query}&type=CITY`,
+		`https://spott.p.rapidapi.com/places/autocomplete?q=${query}&limit=4&type=CITY`,
 		{
 			method: 'GET',
-			signal: abortController.signal,
 			headers: {
-				'x-rapidapi-key': process.env.NEXT_PUBLIC_LOCATION_API_KEY,
-				'x-rapidapi-host': 'spott.p.rapidapi.com',
+				'X-RapidAPI-Host': 'spott.p.rapidapi.com',
+				'X-RapidAPI-Key': process.env.NEXT_PUBLIC_LOCATION_API_KEY,
 			} as HeadersInit,
 		}
 	)

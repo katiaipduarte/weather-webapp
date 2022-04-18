@@ -9,6 +9,8 @@
 	"rules": {
 		// I suggest you add those two rules:
 		"@typescript-eslint/no-unused-vars": "error",
+		"@typescript-eslint/no-explicit-any": "off",
+		"@typescript-eslint/no-var-requires": "off",
 		"prefer-const": "error"
 	},
 	"overrides": [
@@ -22,7 +24,13 @@
 				"plugin:testing-library/react",
 				"plugin:jest/recommended",
 				"plugin:jest/style"
-			]
+			],
+			"rules": {
+				// I suggest you add those two rules:
+				"@typescript-eslint/no-unused-vars": "off",
+				"@typescript-eslint/no-explicit-any": "off",
+				"prefer-const": "error"
+			}
 		}
 	]
 }

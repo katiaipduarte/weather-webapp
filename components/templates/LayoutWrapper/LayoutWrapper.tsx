@@ -1,8 +1,9 @@
-import CurrentWeather from '@components/CurrentWeather/CurrentWeather'
-import ForecastList from '@components/ForecastList/ForecastList'
+import CurrentWeather from '@components/common/CurrentWeather/CurrentWeather'
+import ForecastList from '@components/common/ForecastList/ForecastList'
+import SearchBar from '@components/common/SearchBar/SearchBar'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getBackgroundImg } from '@utils/get-background-img'
-import { Logo, MainContainer } from './LayoutWrapper.style'
+import { Logo, MainContainer, Sidebar } from './LayoutWrapper.style'
 
 type Props = {
 	weather: WeatherResponse
@@ -22,13 +23,15 @@ const LayoutWrapper = (props: Props): JSX.Element => {
 				}}
 			>
 				<Logo className='logo'>weather.app⁢</Logo>
-
 				{weather && (
 					<>
 						<CurrentWeather currentWeather={weather.current} city={cityName} />
 						<ForecastList forecast={weather.daily} />
 					</>
 				)}
+				<Sidebar>
+					<SearchBar />
+				</Sidebar>
 			</MainContainer>
 		</>
 	)
