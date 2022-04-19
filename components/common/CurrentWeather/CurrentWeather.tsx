@@ -1,14 +1,23 @@
 import { CurrentWeather } from '@interfaces/open-weather-api/current-weather'
+import { GPSLocation } from '@interfaces/open-weather-api/location'
+import { GlobalState } from '@store/store'
 import Image from 'next/image'
+import { useSelector } from 'react-redux'
+import FavouriteButton from '../FavouriteButton/FavouriteButton'
 import { WeatherInfoContainer } from './CurrentWeather.style'
 
 type Props = {
 	currentWeather: CurrentWeather
-	city: string
+	location: GPSLocation
 }
 
 const CurrentWeather = (props: Props) => {
-	const { currentWeather, city } = props
+	const { currentWeather, location } = props
+	const favourites = useSelector((state: GlobalState) => state.favouritesState)
+	const isFavourite = favourites.favourites.find(
+		(i: GPSLocation) => i.lat === location.lat && i.lon === location.lon
+	)
+
 	const symbol = '\u00b0'
 
 	const getIconSrc = (): string => {
@@ -35,7 +44,7 @@ const CurrentWeather = (props: Props) => {
 				{symbol}
 			</h2>
 			<div className='location-column'>
-				<h3>{city}</h3>
+				<h3>{location.name}</h3>
 				<p>{getDate()}</p>
 			</div>
 			<div className='weather-column'>
@@ -48,6 +57,7 @@ const CurrentWeather = (props: Props) => {
 				/>
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
+			<FavouriteButton location={location} status={!!isFavourite} />
 		</WeatherInfoContainer>
 	)
 }

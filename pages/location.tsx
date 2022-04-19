@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 const Location: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 	const [weather, setWeather] = useState<WeatherResponse>()
-	const [cityName, setCityName] = useState<string>('')
+	const [location, setLocation] = useState<GPSLocation>()
 	const query = useQuery()
 
 	useEffect(() => {
@@ -34,12 +34,12 @@ const Location: NextPage = () => {
 		Promise.all([
 			getWeatherByCoords(lat, lon, abortController),
 			getLocationNameByCoords(lat, lon, abortController),
-		]).then((values: [WeatherResponse, GPSLocation[]]) => {
+		]).then((values: [WeatherResponse, GPSLocation]) => {
 			const weather = values[0]
-			const location: GPSLocation = values[1][0]
+			const location: GPSLocation = values[1]
 
 			setWeather(weather)
-			setCityName(location.name)
+			setLocation(location)
 			setIsFetching(false)
 		})
 	}
@@ -50,8 +50,8 @@ const Location: NextPage = () => {
 				<title>See the weather to the found location</title>
 			</Head>
 
-			{!isFetching && weather && (
-				<LayoutWrapper weather={weather} cityName={cityName} />
+			{!isFetching && weather && location && (
+				<LayoutWrapper weather={weather} location={location} />
 			)}
 		</>
 	)

@@ -8,6 +8,8 @@ export const WeatherInfoContainer = styled.section`
 	color: white;
 	margin-top: 50vh;
 	margin: 55vh 0 5vh 0;
+	position: relative;
+	width: 50%;
 
 	h2 {
 		margin-right: 1.5rem;

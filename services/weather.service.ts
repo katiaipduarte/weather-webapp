@@ -2,7 +2,7 @@ import { handleRequest } from '@utils/handle-request'
 
 const exclude = 'minutely,hourly,alerts'
 
-export const getWeatherByCoords = (
+export const getWeatherByCoords = async (
 	lat: number,
 	lon: number,
 	abortController: AbortController
