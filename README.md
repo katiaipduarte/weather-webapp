@@ -4,10 +4,11 @@ Welcome to my Weather App, where you can enter a location to fetch the current w
 
 Demo at: [weather-webapp-three.vercel.app](http://weather-webapp-three.vercel.app)
 Project board: [https://github.com/katiaipduarte/weather-webapp/projects/1](https://github.com/katiaipduarte/weather-webapp/projects/1)
+Design based on: [https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media](https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media)
 
 App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [styled-components](https://styled-components.com/), [redux](https://redux.js.org/), [redux toolkit](https://redux-toolkit.js.org/), [firebase](https://firebase.google.com/) and for testing [Jest](https://jestjs.io/). Thank you for using my app.
 
-**Note:** To run this project be sure to have a Node version installed that is 12.x or higher
+**Note:** To run this project be sure to have a Node version installed that is 16.x or higher
 
 ## Table of Contents
 
