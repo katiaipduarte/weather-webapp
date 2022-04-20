@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { addFavourite, deleteFavourite } from '@services/favourites.service'
 import { memo, useState } from 'react'
+import { toast } from 'react-toastify'
 
 import { FavouriteButtonContainer } from './FavouriteButton.style'
 
@@ -20,11 +21,13 @@ const FavouriteButton = (props: Props): JSX.Element => {
 	const onFavourite = (): void => {
 		addFavourite(location)
 		setShowFavButton(true)
+		toast.success('Congrats! You added a new favourite location')
 	}
 
 	const onUnfavourite = (): void => {
 		deleteFavourite(favouriteId)
 		setShowFavButton(false)
+		toast('Location removed with success')
 	}
 
 	return (
