@@ -22,6 +22,10 @@ export const GlobalStyle = createGlobalStyle`
       z-index: 999;
     }
 
+    h1 {
+      font-size: 2.5rem;
+    }
+
     h2 {
       font-size: 5rem;
     }

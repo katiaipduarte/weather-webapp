@@ -3,15 +3,18 @@ import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getLocationNameByCoords } from '@services/location.service'
 import { getWeatherByCoords } from '@services/weather.service'
+import { addSearch } from '@store/search-history/action'
 import useQuery from '@utils/use-query'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const Location: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 	const [weather, setWeather] = useState<WeatherResponse>()
-	const [cityName, setCityName] = useState<string>('')
+	const [location, setLocation] = useState<GPSLocation>()
+	const dispatch = useDispatch()
 	const query = useQuery()
 
 	useEffect(() => {
@@ -34,12 +37,13 @@ const Location: NextPage = () => {
 		Promise.all([
 			getWeatherByCoords(lat, lon, abortController),
 			getLocationNameByCoords(lat, lon, abortController),
-		]).then((values: [WeatherResponse, GPSLocation[]]) => {
+		]).then((values: [WeatherResponse, GPSLocation]) => {
 			const weather = values[0]
-			const location: GPSLocation = values[1][0]
+			const location: GPSLocation = values[1]
 
+			dispatch(addSearch(location))
 			setWeather(weather)
-			setCityName(location.name)
+			setLocation(location)
 			setIsFetching(false)
 		})
 	}
@@ -50,8 +54,8 @@ const Location: NextPage = () => {
 				<title>See the weather to the found location</title>
 			</Head>
 
-			{!isFetching && weather && (
-				<LayoutWrapper weather={weather} cityName={cityName} />
+			{!isFetching && weather && location && (
+				<LayoutWrapper weather={weather} location={location} />
 			)}
 		</>
 	)

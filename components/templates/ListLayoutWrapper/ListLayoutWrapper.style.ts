@@ -19,6 +19,37 @@ export const MainContainer = styled.main`
 		background-color: black;
 		opacity: 0.3;
 	}
+
+	h1 {
+		position: relative;
+		margin: 1.5rem 0;
+
+		&:before {
+			content: '';
+			position: absolute;
+			width: 4rem;
+			bottom: -10px;
+			left: 0;
+			border-bottom: 0.25rem solid white;
+		}
+	}
+
+	.location-list {
+		z-index: 999;
+
+		ul {
+			width: fit-content;
+			li {
+				padding: 1rem 0;
+
+				a {
+					cursor: pointer;
+					font-weight: 500;
+					font-size: 1.25rem;
+				}
+			}
+		}
+	}
 `
 export const Sidebar = styled.section`
 	width: 35vw;

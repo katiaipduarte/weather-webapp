@@ -5,7 +5,7 @@ export const SearchBarContainer = styled.form`
     padding: 0.5rem 0;
     margin: 1rem 0;
     border-bottom: 1px solid white;
-    margin-bottom: 3.25rem;
+    margin-bottom: 2.25rem;
 
     &:focus-visible,
     &:focus:not(:focus-visible) {

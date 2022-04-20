@@ -1,9 +1,10 @@
+import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { PlacesResponse } from '@interfaces/places-response'
 import { handleRequest } from '@utils/handle-request'
 
 export const searchForLocations = async (
 	query: string
-): Promise<PlacesResponse[]> => {
+): Promise<GPSLocation[]> => {
 	return await fetch(
 		`https://spott.p.rapidapi.com/places/autocomplete?q=${query}&limit=4&type=CITY`,
 		{
@@ -15,11 +16,21 @@ export const searchForLocations = async (
 		}
 	)
 		.then((response) => handleRequest(response))
-		.then((response) => {
+		.then((response: PlacesResponse[]) => {
 			if (response && Object.keys(response).length === 0) {
 				throw new Error('An unexpected error has occurred')
 			}
 
-			return response
+			const location: GPSLocation[] = []
+			response.map((i: PlacesResponse) => {
+				location.push({
+					lon: i.coordinates.longitude,
+					lat: i.coordinates.latitude,
+					country: i.country.name,
+					name: i.name,
+				})
+			})
+
+			return location
 		})
 }

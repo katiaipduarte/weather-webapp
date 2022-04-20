@@ -6,7 +6,7 @@ exports[`<SearchBar /> component Unit Test should render Searchbar 1`] = `
   padding: 0.5rem 0;
   margin: 1rem 0;
   border-bottom: 1px solid white;
-  margin-bottom: 3.25rem;
+  margin-bottom: 2.25rem;
 }
 
 .c0:focus-visible,

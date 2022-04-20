@@ -1,14 +1,33 @@
 import { CurrentWeather } from '@interfaces/open-weather-api/current-weather'
+import { GPSLocation } from '@interfaces/open-weather-api/location'
+import { getFavouriteByCoords } from '@services/favourites.service'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import FavouriteButton from '../FavouriteButton/FavouriteButton'
 import { WeatherInfoContainer } from './CurrentWeather.style'
 
 type Props = {
 	currentWeather: CurrentWeather
-	city: string
+	location: GPSLocation
 }
 
 const CurrentWeather = (props: Props) => {
-	const { currentWeather, city } = props
+	const { currentWeather, location } = props
+	const [favourite, setFavourite] = useState<boolean>()
+	const [favouriteId, setFavouriteId] = useState<string>('')
+
+	useEffect(() => {
+		getFavouriteByCoords(location.lat, location.lon).then((res: string) => {
+			console.log(res)
+			if (res === '') {
+				setFavourite(false)
+			} else {
+				setFavourite(true)
+				setFavouriteId(res)
+			}
+		})
+	}, [location])
+
 	const symbol = '\u00b0'
 
 	const getIconSrc = (): string => {
@@ -35,7 +54,7 @@ const CurrentWeather = (props: Props) => {
 				{symbol}
 			</h2>
 			<div className='location-column'>
-				<h3>{city}</h3>
+				<h3>{location.name}</h3>
 				<p>{getDate()}</p>
 			</div>
 			<div className='weather-column'>
@@ -48,6 +67,13 @@ const CurrentWeather = (props: Props) => {
 				/>
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
+			{favourite !== undefined && (
+				<FavouriteButton
+					location={location}
+					status={favourite}
+					favouriteId={favouriteId}
+				/>
+			)}
 		</WeatherInfoContainer>
 	)
 }

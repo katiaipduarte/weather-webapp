@@ -5,7 +5,7 @@ export const getLocationNameByCoords = (
 	lat: number,
 	lon: number,
 	abortController: AbortController
-): Promise<GPSLocation[]> => {
+): Promise<GPSLocation> => {
 	return fetch(
 		`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
 		{
@@ -19,6 +19,13 @@ export const getLocationNameByCoords = (
 				throw new Error('An unexpected error has occurred')
 			}
 
-			return response
+			const location: GPSLocation = {
+				lon: response[0].lon,
+				lat: response[0].lat,
+				country: response[0].country,
+				name: response[0].name,
+			}
+
+			return location
 		})
 }

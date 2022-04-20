@@ -7,7 +7,9 @@ export const WeatherInfoContainer = styled.section`
 	flex-flow: row;
 	color: white;
 	margin-top: 50vh;
-	margin: 55vh 0 5vh 0;
+	margin: 40vh 0 5vh 0;
+	position: relative;
+	width: 50%;
 
 	h2 {
 		margin-right: 1.5rem;

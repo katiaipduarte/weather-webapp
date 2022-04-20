@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 const Home: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 	const [weather, setWeather] = useState<WeatherResponse>()
-	const [cityName, setCityName] = useState<string>('')
+	const [location, setLocation] = useState<GPSLocation>()
 
 	useEffect(() => {
 		navigator.geolocation.watchPosition(success, error)
@@ -32,12 +32,12 @@ const Home: NextPage = () => {
 		Promise.all([
 			getWeatherByCoords(coords.lat, coords.lon, abortController),
 			getLocationNameByCoords(coords.lat, coords.lon, abortController),
-		]).then((values: [WeatherResponse, GPSLocation[]]) => {
+		]).then((values: [WeatherResponse, GPSLocation]) => {
 			const weather = values[0]
-			const location: GPSLocation = values[1][0]
+			const location: GPSLocation = values[1]
 
 			setWeather(weather)
-			setCityName(location.name)
+			setLocation(location)
 			setIsFetching(false)
 		})
 	}
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
 			abortController
 		).then((weather: WeatherResponse) => {
 			setWeather(weather)
-			setCityName(DEFAULT_COORDINATES.name)
+			setLocation(DEFAULT_COORDINATES)
 			setIsFetching(false)
 		})
 	}
@@ -63,8 +63,8 @@ const Home: NextPage = () => {
 				<title>See the weather to your current location</title>
 			</Head>
 
-			{!isFetching && weather && (
-				<LayoutWrapper weather={weather} cityName={cityName} />
+			{!isFetching && weather && location && (
+				<LayoutWrapper weather={weather} location={location} />
 			)}
 		</>
 	)

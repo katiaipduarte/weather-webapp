@@ -1,5 +1,5 @@
 export const getBackgroundImg = (description: string): string => {
-	let weatherImg = ''
+	let weatherImg = '/assets/andrew-neel-1-29wyvvLJA-unsplash.jpg'
 
 	switch (description) {
 		case 'Thunderstorm':
