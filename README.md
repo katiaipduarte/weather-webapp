@@ -2,7 +2,7 @@
 
 Welcome to my Weather App, where you can enter a location to fetch the current weather or see the weather in you current location. You can also add a new city to the favourites, and also delete it.
 
-Demo at: [weather-webapp-three.vercel.app](weather-webapp-three.vercel.app)
+Demo at: [weather-webapp-three.vercel.app](http://weather-webapp-three.vercel.app)
 
 App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [styled-components](https://styled-components.com/), [redux](https://redux.js.org/), [redux toolkit](https://redux-toolkit.js.org/), [firebase](https://firebase.google.com/) and for testing [Jest](https://jestjs.io/). Thank you for using my app.
 
