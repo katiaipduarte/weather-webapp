@@ -9,7 +9,11 @@ describe('the <FavouriteButton /> component', () => {
 	it('should render unfavourite button correctly', () => {
 		const { container } = render(
 			<Provider store={store}>
-				<FavouriteButton location={DEFAULT_COORDINATES} status={false} />
+				<FavouriteButton
+					location={DEFAULT_COORDINATES}
+					status={false}
+					favouriteId={'0'}
+				/>
 			</Provider>
 		)
 		expect(container).toMatchSnapshot()
@@ -18,7 +22,11 @@ describe('the <FavouriteButton /> component', () => {
 	it('should render favourite button correctly', () => {
 		const { container } = render(
 			<Provider store={store}>
-				<FavouriteButton location={DEFAULT_COORDINATES} status={true} />
+				<FavouriteButton
+					location={DEFAULT_COORDINATES}
+					status={true}
+					favouriteId={'0'}
+				/>
 			</Provider>
 		)
 		expect(container).toMatchSnapshot()

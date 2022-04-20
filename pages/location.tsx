@@ -3,15 +3,18 @@ import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
 import { getLocationNameByCoords } from '@services/location.service'
 import { getWeatherByCoords } from '@services/weather.service'
+import { addSearch } from '@store/search-history/action'
 import useQuery from '@utils/use-query'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 const Location: NextPage = () => {
 	const [isFetching, setIsFetching] = useState<boolean>(false)
 	const [weather, setWeather] = useState<WeatherResponse>()
 	const [location, setLocation] = useState<GPSLocation>()
+	const dispatch = useDispatch()
 	const query = useQuery()
 
 	useEffect(() => {
@@ -38,6 +41,7 @@ const Location: NextPage = () => {
 			const weather = values[0]
 			const location: GPSLocation = values[1]
 
+			dispatch(addSearch(location))
 			setWeather(weather)
 			setLocation(location)
 			setIsFetching(false)

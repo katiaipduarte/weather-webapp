@@ -1,8 +1,8 @@
 import { CurrentWeather } from '@interfaces/open-weather-api/current-weather'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
-import { GlobalState } from '@store/store'
+import { getFavouriteByCoords } from '@services/favourites.service'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import FavouriteButton from '../FavouriteButton/FavouriteButton'
 import { WeatherInfoContainer } from './CurrentWeather.style'
 
@@ -13,10 +13,20 @@ type Props = {
 
 const CurrentWeather = (props: Props) => {
 	const { currentWeather, location } = props
-	const favourites = useSelector((state: GlobalState) => state.favouritesState)
-	const isFavourite = favourites.favourites.find(
-		(i: GPSLocation) => i.lat === location.lat && i.lon === location.lon
-	)
+	const [favourite, setFavourite] = useState<boolean>()
+	const [favouriteId, setFavouriteId] = useState<string>('')
+
+	useEffect(() => {
+		getFavouriteByCoords(location.lat, location.lon).then((res: string) => {
+			console.log(res)
+			if (res === '') {
+				setFavourite(false)
+			} else {
+				setFavourite(true)
+				setFavouriteId(res)
+			}
+		})
+	}, [location])
 
 	const symbol = '\u00b0'
 
@@ -57,7 +67,13 @@ const CurrentWeather = (props: Props) => {
 				/>
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
-			<FavouriteButton location={location} status={!!isFavourite} />
+			{favourite !== undefined && (
+				<FavouriteButton
+					location={location}
+					status={favourite}
+					favouriteId={favouriteId}
+				/>
+			)}
 		</WeatherInfoContainer>
 	)
 }

@@ -1,9 +1,9 @@
-import { PlacesResponse } from '@interfaces/places-response'
+import { GPSLocation } from '@interfaces/open-weather-api/location'
 import Link from 'next/link'
 import { SearchOptions } from './LocationList.style'
 
 type Props = {
-	locations: PlacesResponse[]
+	locations: GPSLocation[]
 }
 
 const LocationList = (props: Props): JSX.Element => {
@@ -15,15 +15,15 @@ const LocationList = (props: Props): JSX.Element => {
 				<li data-testid='empty-list'>No results found</li>
 			) : (
 				<>
-					{locations.map((location: PlacesResponse) => (
-						<li key={location.id} tabIndex={0} role='button'>
+					{locations.map((location: GPSLocation) => (
+						<li key={location.name} tabIndex={0} role='button'>
 							<Link
-								href={`/location?lat=${location.coordinates.latitude}&lon=${location.coordinates.longitude}`}
+								href={`/location?lat=${location.lat}&lon=${location.lon}`}
 								passHref={true}
 							>
-								<p data-testid='location-name'>
-									{location.name}, {location.country.name}
-								</p>
+								<a data-testid='location-name'>
+									{location.name}, {location.country}
+								</a>
 							</Link>
 						</li>
 					))}

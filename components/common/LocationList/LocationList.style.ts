@@ -9,10 +9,15 @@ export const SearchOptions = styled.ul`
 		line-height: 2.5rem;
 		cursor: pointer;
 
+		a {
+			font-size: 0.75rem;
+			font-weight: 400;
+		}
+
 		&:hover,
 		&:focus,
 		&:focus-visible {
-			p {
+			a {
 				filter: brightness(75%);
 			}
 		}

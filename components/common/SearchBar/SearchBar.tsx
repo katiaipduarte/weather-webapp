@@ -1,7 +1,7 @@
 import LocationList from '@components/common/LocationList/LocationList'
 import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { PlacesResponse } from '@interfaces/places-response'
+import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { searchForLocations } from '@services/search-locations.service'
 import lodash from 'lodash'
 import { ChangeEvent, FormEvent, useCallback, useState } from 'react'
@@ -10,7 +10,7 @@ import { SearchBarContainer } from './SearchBar.style'
 const SearchBar = (): JSX.Element => {
 	const [searchTerm, setSearchTerm] = useState<string>('')
 	const [showClearButton, setShowClearButton] = useState<boolean>(false)
-	const [locations, setLocations] = useState<PlacesResponse[]>([])
+	const [locations, setLocations] = useState<GPSLocation[]>([])
 	const [loading, setLoading] = useState<boolean>(true)
 	const [showOptions, setShowOptions] = useState<boolean>(false)
 
@@ -43,7 +43,7 @@ const SearchBar = (): JSX.Element => {
 	const debounce = useCallback(
 		lodash.debounce(async (searchTerm: string) => {
 			const res = await searchForLocations(searchTerm)
-			const list: PlacesResponse[] = res ? (res as PlacesResponse[]) : []
+			const list: GPSLocation[] = res ? (res as GPSLocation[]) : []
 			setLocations(list)
 			setLoading(false)
 		}, 500),

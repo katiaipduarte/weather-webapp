@@ -1,5 +1,5 @@
 export interface GPSLocation {
-	id?: number
+	id?: string
 	country: string
 	lat: number
 	lon: number

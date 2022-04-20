@@ -1,16 +1,14 @@
 import { applyMiddleware, combineReducers, createStore } from '@reduxjs/toolkit'
 import thunk from 'redux-thunk'
-import favouritesReducer from './favourites/reducer'
-import { Favourites } from './favourites/type'
+import searchHistoryReducer from './search-history/reducer'
+import { SearchHistory } from './search-history/type'
 
 export interface GlobalState {
-	favouritesState: Favourites
-	// searchState: SearchState
+	searchHistoryState: SearchHistory
 }
 
 const combinedReducer = combineReducers<GlobalState>({
-	favouritesState: favouritesReducer,
-	// searchState: searchStateReducer,
+	searchHistoryState: searchHistoryReducer,
 })
 
 const bindMiddleware = (middleware: any) => {

@@ -2,29 +2,28 @@ import { faHeart as farHeart } from '@fortawesome/free-regular-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
-import { addFavourite, deleteFavourite } from '@store/favourites/action'
+import { addFavourite, deleteFavourite } from '@services/favourites.service'
 import { memo, useState } from 'react'
-import { useDispatch } from 'react-redux'
 
 import { FavouriteButtonContainer } from './FavouriteButton.style'
 
 type Props = {
 	location: GPSLocation
 	status: boolean
+	favouriteId: string
 }
 
 const FavouriteButton = (props: Props): JSX.Element => {
-	const { location, status } = props
+	const { location, status, favouriteId } = props
 	const [showFavButton, setShowFavButton] = useState<boolean>(status)
-	const dispatch = useDispatch()
 
 	const onFavourite = (): void => {
-		dispatch(addFavourite(location))
+		addFavourite(location)
 		setShowFavButton(true)
 	}
 
 	const onUnfavourite = (): void => {
-		dispatch(deleteFavourite(location))
+		deleteFavourite(favouriteId)
 		setShowFavButton(false)
 	}
 
