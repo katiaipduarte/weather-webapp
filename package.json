@@ -11,8 +11,9 @@
 		"lint": "next lint",
 		"format": "prettier --config ./.prettierrc --write \"*/**/*{.ts,.tsx}\"",
 		"prepare": "husky install",
-		"test": "jest --watch",
-		"test:ci": "jest --ci"
+		"test": "jest",
+		"test:watch": "npx test --watch",
+		"test:coverage": "npx jest --coverage"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.1.1",

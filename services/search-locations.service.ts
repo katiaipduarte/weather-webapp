@@ -1,6 +1,7 @@
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { PlacesResponse } from '@interfaces/places-response'
 import { handleRequest } from '@utils/handle-request'
+import { toast } from 'react-toastify'
 
 export const searchForLocations = async (
 	query: string
@@ -18,7 +19,7 @@ export const searchForLocations = async (
 		.then((response) => handleRequest(response))
 		.then((response: PlacesResponse[]) => {
 			if (response && Object.keys(response).length === 0) {
-				throw new Error('An unexpected error has occurred')
+				toast.error('An unexpected error has occurred')
 			}
 
 			const location: GPSLocation[] = []

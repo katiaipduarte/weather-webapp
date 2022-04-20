@@ -1,4 +1,5 @@
 import { handleRequest } from '@utils/handle-request'
+import { toast } from 'react-toastify'
 
 const exclude = 'minutely,hourly,alerts'
 
@@ -17,7 +18,7 @@ export const getWeatherByCoords = async (
 		.then((response) => handleRequest(response))
 		.then((response) => {
 			if (response && Object.keys(response).length === 0) {
-				throw new Error('An unexpected error has occurred')
+				toast.error('An unexpected error has occurred')
 			}
 
 			return response
