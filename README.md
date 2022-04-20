@@ -11,6 +11,8 @@ App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.ty
 ## Table of Contents
 
 - [Installation](#installation)
+  - [Realtime Database](#realtime-database)
+  - [API Keys](#api-keys)
 - [Future Work](#future-work)
 - [Contributing](#contributing)
 - [License](#license)
@@ -21,7 +23,6 @@ App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.ty
   - [npm run dev](#npm-run-dev)
   - [npm run build](#npm-run-build)
   - [npm run start](#npm-run-start)
-  - [npm run find:unused](#npm-run-findunused)
   - [npm run lint](#npm-run-lint)
   - [npm run format](#npm-run-format)
   - [npm run test](#npm-run-test)
