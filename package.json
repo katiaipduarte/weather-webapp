@@ -12,6 +12,7 @@
 		"format": "prettier --config ./.prettierrc --write \"*/**/*{.ts,.tsx}\"",
 		"prepare": "husky install",
 		"test": "jest",
+		"test:ci": "jest --ci",
 		"test:watch": "npx test --watch",
 		"test:coverage": "npx jest --coverage"
 	},
