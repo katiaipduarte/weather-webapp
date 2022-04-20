@@ -1,5 +1,7 @@
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { ThemeProvider } from 'styled-components'
 import store from '../store/store'
 import { GlobalStyle } from '../styles'
@@ -11,6 +13,17 @@ const App = ({ Component, pageProps }: AppProps): JSX.Element => {
 			<GlobalStyle />
 			<ThemeProvider theme={theme}>
 				<Provider store={store}>
+					<ToastContainer
+						position='top-right'
+						autoClose={3000}
+						hideProgressBar={false}
+						newestOnTop={true}
+						closeOnClick
+						rtl={false}
+						pauseOnFocusLoss={false}
+						draggable
+						pauseOnHover
+					/>
 					<Component {...pageProps} />
 				</Provider>
 			</ThemeProvider>

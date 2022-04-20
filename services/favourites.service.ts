@@ -9,6 +9,7 @@ import {
 	setDoc,
 	where,
 } from 'firebase/firestore'
+import { toast } from 'react-toastify'
 import { firestore } from '../firebase/clientApp'
 
 export const getFavourites = async () => {
@@ -52,7 +53,7 @@ export const addFavourite = async (location: GPSLocation) => {
 		//add the document
 		await setDoc(_favourites, location)
 	} catch (error) {
-		throw new Error('An error occurred while adding favourite')
+		toast.error('An error occurred while adding favourite')
 	}
 }
 
@@ -60,6 +61,6 @@ export const deleteFavourite = async (id: string) => {
 	try {
 		await deleteDoc(doc(firestore, 'favourites', id))
 	} catch (error) {
-		throw new Error('An error occurred while deleting favourite')
+		toast.error('An error occurred while deleting favourite')
 	}
 }
