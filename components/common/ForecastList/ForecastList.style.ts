@@ -1,28 +1,29 @@
 import styled from 'styled-components'
 
 export const List = styled.section`
-	display: flex;
-	flex-flow: row;
+	display: grid;
+	grid-gap: 1rem;
+	grid-template-columns: 1fr 1fr;
 	color: white;
 	background-color: rgba(0, 0, 0, 0.35);
 	width: fit-content;
 	padding: 1rem;
 	border-radius: 1rem;
+	margin: 5rem auto 0;
 
 	.forecast-column {
-		margin-right: 2.5rem;
-		text-align: center;
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		cursor: pointer;
+		position: relative;
 
 		.weekday {
-			font-weight: 600;
-		}
-
-		.icon-image {
-			margin-top: 8px !important;
+			font-weight: 400;
 		}
 
 		.weather-temp {
-			font-size: 0.5rem;
+			font-size: 0.65rem;
 
 			.label {
 				font-weight: 500;
@@ -32,24 +33,11 @@ export const List = styled.section`
 		}
 	}
 
-	// width: 50%;
-	// margin: 0 auto;
-	// border-radius: 5rem;
-	// background-color: rgba(0, 0, 0, 0.45);
-	// line-height: 1;
-	// -webkit-backdrop-filter: blur(10px);
-	// backdrop-filter: blur(10px);
-	// max-width: 50%;
-	// padding: 10rem;
-	// margin-top: 30rem;
-	// .flex-forecast {
-	// 	display: flex;
-	// 	justify-content: space-between;
-	// 	padding: 5rem 0;
-	// 	.weather-forecast-info {
-	// 		span {
-	// 			margin-left: 10rem;
-	// 		}
-	// 	}
-	// }
+	@media all and (min-width: 700px) {
+		.forecast-column {
+			.icon-image {
+				margin-top: 8px !important;
+			}
+		}
+	}
 `

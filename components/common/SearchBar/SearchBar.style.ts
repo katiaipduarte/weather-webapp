@@ -22,6 +22,7 @@ export const SearchBarContainer = styled.form`
       filter: brightness(75%);
       cursor: pointer;
       border: none;
+      display: none;
     }
 
     #clear-search-term-btn {
@@ -48,6 +49,12 @@ export const SearchBarContainer = styled.form`
       ::placeholder {
         color: white;
       }
+    }
+  }
+
+  @media (min-width: 700px) {
+    #search-term-btn {
+      display: inherit;
     }
   }
 `

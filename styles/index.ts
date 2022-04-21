@@ -18,8 +18,6 @@ export const GlobalStyle = createGlobalStyle`
     h1, h2, h3, h4, h5, h6, p, span {
       cursor: default;
       color: white;
-      opacity: 1;
-      z-index: 999;
     }
 
     h1 {

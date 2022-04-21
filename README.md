@@ -59,6 +59,7 @@ This project is connected to 2 external API.
 
 ## Future Work
 
+[ ] Update docker to enable running firebase locally<br>
 [ ] Add more unit tests and e2e ones<br>
 [ ] Add authentication, to allow multiple users with different favourite locations<br>
 [ ] Add better caching <br>
