@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LocationList /> component Unit Test should render 1 <ForecastList /> component 1`] = `
+<div>
+  <ul
+    class="sc-bczRLJ htVIhc"
+    role="list"
+    tabindex="-1"
+  >
+    <li
+      role="button"
+      tabindex="0"
+    >
+      <a
+        data-testid="location-name"
+        href="/location?lat=39.74362&lon=-8.80705"
+      >
+        Leiria
+        , 
+        PT
+      </a>
+    </li>
+  </ul>
+</div>
+`;

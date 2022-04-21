@@ -2,14 +2,13 @@
 
 exports[`the <FavouriteButton /> component should render favourite button correctly 1`] = `
 .c0 {
-  position: absolute;
   background: transparent;
   border: none;
-  height: 2rem;
-  width: 2rem;
-  top: 0.5rem;
-  right: 0;
-  z-index: 999;
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
 }
 
 .c0:focus,
@@ -18,8 +17,8 @@ exports[`the <FavouriteButton /> component should render favourite button correc
 }
 
 .c0 svg {
-  height: 2rem;
-  width: 2rem !important;
+  height: 1.5rem;
+  width: 1.5rem !important;
   cursor: pointer;
 }
 
@@ -81,14 +80,13 @@ exports[`the <FavouriteButton /> component should render favourite button correc
 
 exports[`the <FavouriteButton /> component should render unfavourite button correctly 1`] = `
 .c0 {
-  position: absolute;
   background: transparent;
   border: none;
-  height: 2rem;
-  width: 2rem;
-  top: 0.5rem;
-  right: 0;
-  z-index: 999;
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
 }
 
 .c0:focus,
@@ -97,8 +95,8 @@ exports[`the <FavouriteButton /> component should render unfavourite button corr
 }
 
 .c0 svg {
-  height: 2rem;
-  width: 2rem !important;
+  height: 1.5rem;
+  width: 1.5rem !important;
   cursor: pointer;
 }
 

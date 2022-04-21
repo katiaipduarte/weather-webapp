@@ -49,14 +49,4 @@ describe('Home', () => {
 
 		expect(container).toMatchSnapshot()
 	})
-
-	// test('renders a heading', () => {
-	// 	const { container } = renderComponent({ theme: theme })
-	// 	console.log(container)
-	// 	const heading = screen.getByRole('heading', {
-	// 		name: 'weather.app⁢',
-	// 	})
-
-	// 	expect(heading).toBeInTheDocument()
-	// })
 })

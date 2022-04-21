@@ -23,7 +23,6 @@ const BackgroundImage = (props: Props): JSX.Element => {
 		const { width, height } = getWindowDimensions()
 
 		setWidth(width)
-
 		setheight(height)
 	}, [])
 
@@ -32,7 +31,6 @@ const BackgroundImage = (props: Props): JSX.Element => {
 			const { width, height } = getWindowDimensions()
 
 			setWidth(width)
-
 			setheight(height)
 		}
 
