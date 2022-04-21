@@ -1,3 +1,4 @@
+import SearchBar from '@components/common/SearchBar/SearchBar'
 import Navbar from '@components/ui/Navbar/Navbar'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import dynamic from 'next/dynamic'
@@ -49,9 +50,9 @@ const ListLayoutWrapper = (props: Props): JSX.Element => {
 							)}
 						</ul>
 					</section>
-					{/* <Sidebar>
-					<SearchBar />
-				</Sidebar>*/}
+					<section className='sidebar'>
+						<SearchBar />
+					</section>
 				</main>
 			</Wrapper>
 			<BackgroundImage description={''} />

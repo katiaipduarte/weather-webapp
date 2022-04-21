@@ -1,5 +1,6 @@
 import CurrentWeather from '@components/common/CurrentWeather/CurrentWeather'
 import ForecastList from '@components/common/ForecastList/ForecastList'
+import SearchBar from '@components/common/SearchBar/SearchBar'
 import Navbar from '@components/ui/Navbar/Navbar'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { WeatherResponse } from '@interfaces/open-weather-api/weather-response'
@@ -36,9 +37,9 @@ const LayoutWrapper = (props: Props): JSX.Element => {
 							<ForecastList forecast={weather.daily} />
 						</>
 					)}
-					{/* <Sidebar>
-					<SearchBar />
-				</Sidebar>*/}
+					<section className='sidebar'>
+						<SearchBar />
+					</section>
 				</main>
 			</Wrapper>
 			<BackgroundImage

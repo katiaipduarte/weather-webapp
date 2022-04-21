@@ -33,8 +33,14 @@ export const List = styled.section`
 		}
 	}
 
-	@media all and (min-width: 700px) {
+	@media all and (min-width: 960px) {
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+		margin: 2.5rem 2.5rem 0;
+		float: left;
+
 		.forecast-column {
+			display: block;
+			text-align: center;
 			.icon-image {
 				margin-top: 8px !important;
 			}

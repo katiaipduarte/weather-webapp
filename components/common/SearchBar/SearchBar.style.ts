@@ -3,9 +3,8 @@ import styled from 'styled-components'
 export const SearchBarContainer = styled.form`
     max-width: 24rem;
     padding: 0.5rem 0;
-    margin: 1rem 0;
     border-bottom: 1px solid white;
-    margin-bottom: 2.25rem;
+    margin: 0 auto 2.25rem;
 
     &:focus-visible,
     &:focus:not(:focus-visible) {
@@ -46,15 +45,21 @@ export const SearchBarContainer = styled.form`
       font-size: 1rem;
       width: calc(100% - 1rem);
       background: transparent;
+      text-align: center;
       ::placeholder {
         color: white;
       }
     }
   }
 
-  @media (min-width: 700px) {
+  @media (min-width: 960px) {
+    margin: 1rem 0 2.25rem;
     #search-term-btn {
       display: inherit;
+    }
+
+    input {
+      text-align: initial;
     }
   }
 `

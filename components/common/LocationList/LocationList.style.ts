@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const SearchOptions = styled.ul`
 	border-bottom: 1px solid white;
 	padding-bottom: 2.25rem;
+	margin: 0 auto;
 
 	li {
 		color: white;

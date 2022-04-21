@@ -10,12 +10,9 @@ export const Wrapper = styled.div`
 	width: 100%;
 
 	main {
-		margin-bottom: auto;
-		padding: 0 1rem;
-
 		h1 {
 			position: relative;
-			margin: 1.5rem 0;
+			margin: 1.5rem 0 3rem;
 
 			&:before {
 				content: '';
@@ -47,19 +44,10 @@ export const Wrapper = styled.div`
 	}
 
 	@media all and (min-width: 960px) {
-		max-width: 64rem;
-		margin: 0 auto;
+		max-width: 96rem;
+		margin-left: auto;
+		margin-right: auto;
+		left: 0;
+		right: 0;
 	}
-`
-
-export const Sidebar = styled.section`
-	width: 35vw;
-	background-color: rgba(0, 0, 0, 0.35);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-	padding: 1rem 4rem;
-	position: absolute;
-	right: 0;
-	top: 0;
-	bottom: 0;
 `

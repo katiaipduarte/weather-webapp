@@ -11,7 +11,6 @@ export const WeatherInfoContainer = styled.section`
 	h2 {
 		margin-right: 1.5rem;
 		font-weight: 500;
-		font-size: 4rem;
 	}
 
 	.location-current-weather {
@@ -38,5 +37,9 @@ export const WeatherInfoContainer = styled.section`
 		p {
 			margin-bottom: 4px;
 		}
+	}
+
+	@media (min-width: 960px) {
+		margin: 0 2.5rem;
 	}
 `

@@ -71,44 +71,26 @@ export const NavbarContainer = styled.header`
 		}
 	}
 
-	/* Tablet menu */
-	@media all and (min-width: 700px) {
-		.menu {
-			justify-content: center;
-			.logo {
-				flex: 1;
-			}
-			.toggle {
-				flex: 1;
-				text-align: right;
-				order: 2;
-			}
-		}
-
-		.mobile-menu {
-			display: none !important;
-		}
-	}
-
 	/* Desktop menu */
 	@media all and (min-width: 960px) {
 		.menu {
+			justify-content: center;
 			align-items: flex-start;
 			flex-wrap: nowrap;
 			background: none;
+			width: 65%;
 			.logo {
+				flex: 1;
 				order: 0;
 			}
+			.toggle {
+				display: none;
+			}
 			.item {
-				order: 1;
-				position: relative;
 				display: block;
 				width: auto;
 				font-size: 1rem;
 				border: none;
-			}
-			.toggle {
-				display: none;
 			}
 		}
 	}

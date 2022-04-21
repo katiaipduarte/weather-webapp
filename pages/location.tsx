@@ -51,7 +51,7 @@ const Location: NextPage = () => {
 	return (
 		<>
 			<Head>
-				<title>See the weather to the found location</title>
+				<title>Weather</title>
 			</Head>
 
 			{!isFetching && weather && location && (
