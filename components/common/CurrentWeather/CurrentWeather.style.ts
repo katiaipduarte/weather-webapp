@@ -6,7 +6,7 @@ export const WeatherInfoContainer = styled.section`
 	line-height: 5rem;
 	flex-flow: row;
 	color: white;
-	margin-top: 5rem;
+	margin: 5rem auto 0;
 
 	h2 {
 		margin-right: 1.5rem;
@@ -40,6 +40,6 @@ export const WeatherInfoContainer = styled.section`
 	}
 
 	@media (min-width: 960px) {
-		margin: 0 2.5rem;
+		margin: 0 2.5rem !important;
 	}
 `
