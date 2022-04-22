@@ -19,7 +19,7 @@ exports[`<CurrentWeather /> component Unit Test should render 1 <CurrentWeather 
           Leiria
         </h3>
         <p>
-          Thursday, April 21, 22
+          Friday, April 22, 22
         </p>
       </div>
     </div>
