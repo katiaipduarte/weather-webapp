@@ -8,7 +8,7 @@ export const getLocationNameByCoords = (
 	abortController: AbortController
 ): Promise<GPSLocation> => {
 	return fetch(
-		`http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
+		`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${process.env.NEXT_PUBLIC_API_KEY}`,
 		{
 			method: 'GET',
 			signal: abortController.signal,

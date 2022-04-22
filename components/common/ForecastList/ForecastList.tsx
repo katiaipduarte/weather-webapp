@@ -13,7 +13,7 @@ const ForecastList = (props: Props) => {
 	const { forecast } = props
 
 	const getIconSrc = (weather: WeatherDescription[]): string => {
-		return `http://openweathermap.org/img/w/${weather[0].icon}.png`
+		return `https://openweathermap.org/img/w/${weather[0].icon}.png`
 	}
 
 	const renderList = (): JSX.Element => {
