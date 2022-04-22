@@ -7,7 +7,7 @@ import { addSearch } from '@store/search-history/action'
 import useQuery from '@utils/use-query'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 const Location: NextPage = () => {
@@ -17,6 +17,26 @@ const Location: NextPage = () => {
 	const dispatch = useDispatch()
 	const query = useQuery()
 
+	const getWeather = useCallback(
+		(lat: number, lon: number): void => {
+			const abortController = new AbortController()
+			setIsFetching(true)
+
+			Promise.all([
+				getWeatherByCoords(lat, lon, abortController),
+				getLocationNameByCoords(lat, lon, abortController),
+			]).then((values: [WeatherResponse, GPSLocation]) => {
+				const weather = values[0]
+				const location: GPSLocation = values[1]
+
+				dispatch(addSearch(location))
+				setWeather(weather)
+				setLocation(location)
+				setIsFetching(false)
+			})
+		},
+		[dispatch]
+	)
 	useEffect(() => {
 		if (!query) {
 			return
@@ -28,25 +48,7 @@ const Location: NextPage = () => {
 		if (!!lat && !!lon) {
 			getWeather(lat, lon)
 		}
-	}, [query])
-
-	const getWeather = (lat: number, lon: number): void => {
-		const abortController = new AbortController()
-		setIsFetching(true)
-
-		Promise.all([
-			getWeatherByCoords(lat, lon, abortController),
-			getLocationNameByCoords(lat, lon, abortController),
-		]).then((values: [WeatherResponse, GPSLocation]) => {
-			const weather = values[0]
-			const location: GPSLocation = values[1]
-
-			dispatch(addSearch(location))
-			setWeather(weather)
-			setLocation(location)
-			setIsFetching(false)
-		})
-	}
+	}, [query, getWeather])
 
 	return (
 		<>
