@@ -4,10 +4,13 @@ Welcome to my Weather App, where you can enter a location to fetch the current w
 
 Demo at: [weather-webapp-three.vercel.app](http://weather-webapp-three.vercel.app)
 Project board: [https://github.com/katiaipduarte/weather-webapp/projects/1](https://github.com/katiaipduarte/weather-webapp/projects/1)
+Design based on: [https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media](https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media)
 
 App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.typescriptlang.org/), [styled-components](https://styled-components.com/), [redux](https://redux.js.org/), [redux toolkit](https://redux-toolkit.js.org/), [firebase](https://firebase.google.com/) and for testing [Jest](https://jestjs.io/). Thank you for using my app.
 
-**Note:** To run this project be sure to have a Node version installed that is 12.x or higher
+There is also a Dockerfile, if you want to run it like that. Be aware, there might me some [issues](https://github.com/vercel/next.js/discussions/30468) with build using Docker, because of [SWC](https://nextjs.org/docs/advanced-features/compiler) use instead of Babel. Since it will be the new default while NextJS. What work for me was removing the node?modules and the package-lock.json, and re do all of the package installation.
+
+**Note:** To run this project be sure to have a Node version installed that is 16.x or higher
 
 ## Table of Contents
 
@@ -24,6 +27,8 @@ App created using [Next.js 12](https://nextjs.org/), [TypeScript](https://www.ty
   - [npm run dev](#npm-run-dev)
   - [npm run build](#npm-run-build)
   - [npm run start](#npm-run-start)
+  - [npm run docker:build](#npm-run-build-docker)
+  - [npm run docker:run](#npm-run-docker)
   - [npm run lint](#npm-run-lint)
   - [npm run format](#npm-run-format)
   - [npm run test](#npm-run-test)
@@ -58,6 +63,7 @@ This project is connected to 2 external API.
 
 ## Future Work
 
+[ ] Update docker to enable running firebase locally<br>
 [ ] Add more unit tests and e2e ones<br>
 [ ] Add authentication, to allow multiple users with different favourite locations<br>
 [ ] Add better caching <br>
@@ -150,6 +156,15 @@ Your app is ready to be deployed!
 
 Runs the app in the production mode.<br />
 Open [http://localhost](http://localhost) to view it in the browser.
+
+### `npm run docker:build`
+
+Creates a docker image containing the app build in production mode.<br />
+
+### `npm run docker:run`
+
+Creates a docker image containing the app build in production mode. After that, runs the docker image.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `npm run lint`
 

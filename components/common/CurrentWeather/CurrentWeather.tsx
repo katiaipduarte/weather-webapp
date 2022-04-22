@@ -1,9 +1,9 @@
+import FavouriteButton from '@components/ui/FavouriteButton/FavouriteButton'
 import { CurrentWeather } from '@interfaces/open-weather-api/current-weather'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
 import { getFavouriteByCoords } from '@services/favourites.service'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import FavouriteButton from '../FavouriteButton/FavouriteButton'
 import { WeatherInfoContainer } from './CurrentWeather.style'
 
 type Props = {
@@ -18,7 +18,6 @@ const CurrentWeather = (props: Props) => {
 
 	useEffect(() => {
 		getFavouriteByCoords(location.lat, location.lon).then((res: string) => {
-			console.log(res)
 			if (res === '') {
 				setFavourite(false)
 			} else {
@@ -53,9 +52,18 @@ const CurrentWeather = (props: Props) => {
 				{Math.round(currentWeather.temp)}
 				{symbol}
 			</h2>
-			<div className='location-column'>
-				<h3>{location.name}</h3>
-				<p>{getDate()}</p>
+			<div className='location-current-weather'>
+				<div className='location-column'>
+					<h3>{location.name}</h3>
+					<p>{getDate()}</p>
+				</div>
+				{favourite !== undefined && (
+					<FavouriteButton
+						location={location}
+						status={favourite}
+						favouriteId={favouriteId}
+					/>
+				)}
 			</div>
 			<div className='weather-column'>
 				<Image
@@ -67,13 +75,6 @@ const CurrentWeather = (props: Props) => {
 				/>
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
-			{favourite !== undefined && (
-				<FavouriteButton
-					location={location}
-					status={favourite}
-					favouriteId={favouriteId}
-				/>
-			)}
 		</WeatherInfoContainer>
 	)
 }

@@ -40,6 +40,7 @@ const SearchBar = (): JSX.Element => {
 		setSearchTerm(searchTerm)
 	}
 
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const debounce = useCallback(
 		lodash.debounce(async (searchTerm: string) => {
 			const res = await searchForLocations(searchTerm)

@@ -1,9 +1,9 @@
-import Navbar from '@components/common/Navbar/Navbar'
 import SearchBar from '@components/common/SearchBar/SearchBar'
+import Navbar from '@components/ui/Navbar/Navbar'
 import { GPSLocation } from '@interfaces/open-weather-api/location'
-import { getBackgroundImg } from '@utils/get-background-img'
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { MainContainer, Sidebar } from './ListLayoutWrapper.style'
+import { Wrapper } from './ListLayoutWrapper.style'
 
 type Props = {
 	locations: GPSLocation[]
@@ -13,43 +13,49 @@ type Props = {
 const ListLayoutWrapper = (props: Props): JSX.Element => {
 	const { locations, title } = props
 
+	const BackgroundImage = dynamic(
+		() => import('../../ui/BackgroundImage/BackgroundImage'),
+		{
+			ssr: false,
+			loading: () => <></>,
+		}
+	)
+
 	return (
 		<>
-			<MainContainer
-				style={{
-					backgroundImage: `url(${getBackgroundImg('list')})`,
-				}}
-			>
+			<Wrapper>
 				<Navbar />
+				<main>
+					<h1>{title}</h1>
 
-				<h1>{title}</h1>
-				<section className='location-list'>
-					<ul role='list' tabIndex={-1}>
-						{locations.length === 0 ? (
-							<li data-testid='empty-list'>No results found</li>
-						) : (
-							<>
-								{locations.map((location: GPSLocation) => (
-									<li key={location.name} tabIndex={0} role='button'>
-										<Link
-											href={`/location?lat=${location.lat}&lon=${location.lon}`}
-											passHref={true}
-										>
-											<a data-testid='location-name'>
-												{location.name}, {location.country}
-											</a>
-										</Link>
-									</li>
-								))}
-							</>
-						)}
-					</ul>
-				</section>
-
-				<Sidebar>
-					<SearchBar />
-				</Sidebar>
-			</MainContainer>
+					<section className='location-list'>
+						<ul role='list' tabIndex={-1}>
+							{locations.length === 0 ? (
+								<li data-testid='empty-list'>No results found</li>
+							) : (
+								<>
+									{locations.map((location: GPSLocation) => (
+										<li key={location.name} tabIndex={0} role='button'>
+											<Link
+												href={`/location?lat=${location.lat}&lon=${location.lon}`}
+												passHref={true}
+											>
+												<a data-testid='location-name'>
+													{location.name}, {location.country}
+												</a>
+											</Link>
+										</li>
+									))}
+								</>
+							)}
+						</ul>
+					</section>
+					<section className='sidebar'>
+						<SearchBar />
+					</section>
+				</main>
+			</Wrapper>
+			<BackgroundImage description={''} />
 		</>
 	)
 }

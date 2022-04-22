@@ -6,33 +6,40 @@ export const WeatherInfoContainer = styled.section`
 	line-height: 5rem;
 	flex-flow: row;
 	color: white;
-	margin-top: 50vh;
-	margin: 40vh 0 5vh 0;
-	position: relative;
-	width: 50%;
+	margin: 5rem auto 0;
 
 	h2 {
 		margin-right: 1.5rem;
 		font-weight: 500;
 	}
 
-	.location-column {
-		margin-right: 1.5rem;
-		line-height: 1.75rem;
-		z-index: 999;
+	.location-current-weather {
+		position: relative;
+		margin-right: 1.75rem;
 
-		h3 {
-			letter-spacing: -0.1rem;
-			font-weight: 400;
+		.location-column {
+			line-height: 1.75rem;
+
+			h3 {
+				letter-spacing: -0.1rem;
+				font-weight: 400;
+			}
 		}
 	}
 
 	.weather-column {
 		line-height: 23px;
-		z-index: 999;
 
 		.icon-image {
 			margin-bottom: -10px !important;
 		}
+
+		p {
+			margin-bottom: 4px;
+		}
+	}
+
+	@media (min-width: 960px) {
+		margin: 0 2.5rem !important;
 	}
 `
