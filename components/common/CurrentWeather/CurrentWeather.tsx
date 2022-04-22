@@ -30,7 +30,7 @@ const CurrentWeather = (props: Props) => {
 	const symbol = '\u00b0'
 
 	const getIconSrc = (): string => {
-		return `http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`
+		return `https://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png`
 	}
 
 	const getDate = (): string => {

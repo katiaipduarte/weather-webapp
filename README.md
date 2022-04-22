@@ -5,6 +5,7 @@ Welcome to my Weather App, where you can enter a location to fetch the current w
 Demo at: [weather-webapp-three.vercel.app](http://weather-webapp-three.vercel.app)
 
 Project board: [https://github.com/katiaipduarte/weather-webapp/projects/1](https://github.com/katiaipduarte/weather-webapp/projects/1)
+Design based on: [https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media](https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media)
 
 Design based on: [https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media](https://dribbble.com/shots/7376567-Weather-App-Website/attachments/263087?mode=media)
 
